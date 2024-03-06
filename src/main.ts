@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded',function(){
 const reset = document.querySelector('#reset') as HTMLButtonElement
 const demo = document.querySelector('#demo') as HTMLButtonElement
 const tag = document.querySelector('.front') as HTMLDivElement 
-let elDivFront = document.querySelector('.front')
+let elDivBack = document.querySelector('.back') as HTMLDivElement
 let elDiv: HTMLDivElement[] = []
 for (let i = 1; i < 16; i ++){
   elDiv.push(document.createElement ('div'))
@@ -114,7 +114,17 @@ function shuffleArray (indexD0:number){
   } while (indexD0 != 15);
   demoArr.unshift(15)
 }
- elDiv.map((el) => tag.appendChild(el))
+let elDivB: HTMLDivElement[] = []
+
+elDiv.forEach((el) => elDivB.push(el))
+elDivB.map((el) => elDivBack.appendChild(el))
+elDiv.map((el) => {
+  // debugger
+  tag.appendChild(el)
+})
+ 
+ console.log(elDiv)
+ console.log(elDivB)
  //======================================================================
 //  прописываем логику игры (обмен ID). Добавляем все ходы в массив.
  
@@ -214,3 +224,7 @@ const tagEl = document.querySelectorAll('#TAG DIV') as NodeListOf<Element>
           }
         }
       }
+function el(value: HTMLDivElement, index: number, array: HTMLDivElement[]): void {
+  throw new Error('Function not implemented.')
+}
+
