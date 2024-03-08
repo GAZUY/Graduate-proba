@@ -70,12 +70,17 @@ const demo = document.querySelector('#demo') as HTMLButtonElement
 const tag = document.querySelector('.front') as HTMLDivElement 
 let elDivBack = document.querySelector('.back') as HTMLDivElement
 let elDiv: HTMLDivElement[] = []
+let elDivB: HTMLDivElement[] = []
 for (let i = 1; i < 16; i ++){
   elDiv.push(document.createElement ('div'))
+  elDivB.push(document.createElement ('div'))
   elDiv[i-1].setAttribute('id', `D${i}`)
+  elDivB[i-1].setAttribute('id', `D${i}`)
 }
 elDiv.push(document.createElement ('div'))
+elDivB.push(document.createElement ('div'))
   elDiv[15].setAttribute('id', `D${0}`)
+  elDivB[15].setAttribute('id', `D${0}`)
 
   let demoArr: number[] = []
   //=======================================================
@@ -94,6 +99,9 @@ function shuffleArray (indexD0:number){
    let atr1 = elDiv[indexD0].getAttribute('id')
         elDiv[indexD0].setAttribute('id', `${elDiv[whereToMove].getAttribute('id')}`)
         elDiv[whereToMove].setAttribute('id', `${atr1}`)
+        let atr1B = elDivB[indexD0].getAttribute('id')
+        elDivB[indexD0].setAttribute('id', `${elDivB[whereToMove].getAttribute('id')}`)
+        elDivB[whereToMove].setAttribute('id', `${atr1B}`)
         indexD0 = whereToMove 
         demoArr.push(indexD0)   
       
@@ -106,17 +114,20 @@ function shuffleArray (indexD0:number){
     if (indexD0 - 1 <= 15 && 0 <= indexD0 - 1 && indexD0 !=4 && indexD0 !=8 && indexD0 !=12) round.push(indexD0 - 1)
     whereToMove = round[Math.floor(Math.random() * round.length)]
     let atr1 = elDiv[indexD0].getAttribute('id')
-        elDiv[indexD0].setAttribute('id', `${elDiv[whereToMove].getAttribute('id')}`)
+        elDiv[indexD0].setAttribute('id', `${elDivB[whereToMove].getAttribute('id')}`)
         elDiv[whereToMove].setAttribute('id', `${atr1}`)
+        let atr1B = elDivB[indexD0].getAttribute('id')
+        elDivB[indexD0].setAttribute('id', `${elDivB[whereToMove].getAttribute('id')}`)
+        elDivB[whereToMove].setAttribute('id', `${atr1B}`)
         indexD0 = whereToMove 
         demoArr.push(indexD0)   
       
   } while (indexD0 != 15);
   demoArr.unshift(15)
 }
-let elDivB: HTMLDivElement[] = []
 
-elDiv.forEach((el) => elDivB.push(el))
+
+// elDiv.forEach((el) => elDivB.push(el))
 elDivB.map((el) => elDivBack.appendChild(el))
 elDiv.map((el) => {
   // debugger
@@ -125,19 +136,22 @@ elDiv.map((el) => {
  
  console.log(elDiv)
  console.log(elDivB)
+ console.log(demoArr)
  //======================================================================
 //  прописываем логику игры (обмен ID). Добавляем все ходы в массив.
  
 
 
 let d0 = document.querySelector('#D0') as HTMLDivElement
-shuffleArray(elDiv.indexOf(d0))
-console.log(elDiv.indexOf(d0))
+shuffleArray(elDiv.indexOf(d0)) 
 tag.onclick = function(event){
   let target = event.target as any
+  
     if (target.tagName == 'DIV'){
-       let d0 = document.querySelector('#D0') as HTMLDivElement
+       let d0 = tag.querySelector('#D0') as HTMLDivElement
+       let d0B = elDivBack.querySelector('#D0') as HTMLDivElement
        demoArr.push(elDiv.indexOf(target))
+      
        if (elDiv.indexOf(d0) == 7 && elDiv.indexOf(target) == 8 || elDiv.indexOf(d0) == 8 && elDiv.indexOf(target) == 7 ||
        elDiv.indexOf(d0) == 3 && elDiv.indexOf(target) == 4 || elDiv.indexOf(d0) == 4 && elDiv.indexOf(target) == 3 ||
        elDiv.indexOf(d0) == 11 && elDiv.indexOf(target) == 12 || elDiv.indexOf(d0) == 12 && elDiv.indexOf(target) == 11)
@@ -148,6 +162,41 @@ tag.onclick = function(event){
         let atr = elDiv[elDiv.indexOf(d0)].getAttribute('id')
         elDiv[elDiv.indexOf(d0)].setAttribute('id', `${elDiv[elDiv.indexOf(target)].getAttribute('id')}`)
         elDiv[elDiv.indexOf(target)].setAttribute('id', `${atr}`)
+
+        let atrB = elDivB[elDiv.indexOf(d0)].getAttribute('id')
+        
+        elDivB[elDiv.indexOf(d0)].setAttribute('id', `${elDivB[elDiv.indexOf(target)].getAttribute('id')}`)
+        elDivB[elDiv.indexOf(target)].setAttribute('id', `${atrB}`)
+        }
+       }
+      
+        
+    }
+}
+
+
+elDivBack.onclick = function(event){
+  let target = event.target as any
+  
+    if (target.tagName == 'DIV'){
+       let d0 = elDivBack.querySelector('#D0') as HTMLDivElement
+       demoArr.push(elDivB.indexOf(target))
+      
+       if (elDivB.indexOf(d0) == 7 && elDivB.indexOf(target) == 8 || elDivB.indexOf(d0) == 8 && elDivB.indexOf(target) == 7 ||
+       elDivB.indexOf(d0) == 3 && elDivB.indexOf(target) == 4 || elDivB.indexOf(d0) == 4 && elDivB.indexOf(target) == 3 ||
+       elDivB.indexOf(d0) == 11 && elDivB.indexOf(target) == 12 || elDivB.indexOf(d0) == 12 && elDivB.indexOf(target) == 11)
+       {
+        
+       }else{
+         if (Math.max(elDivB.indexOf(d0), elDivB.indexOf(target)) - Math.min(elDivB.indexOf(d0), elDivB.indexOf(target)) == 1 || Math.max(elDivB.indexOf(d0), elDivB.indexOf(target)) - Math.min(elDivB.indexOf(d0), elDivB.indexOf(target)) == 4){
+        let atr = elDivB[elDivB.indexOf(d0)].getAttribute('id')
+        elDivB[elDivB.indexOf(d0)].setAttribute('id', `${elDivB[elDivB.indexOf(target)].getAttribute('id')}`)
+        elDivB[elDivB.indexOf(target)].setAttribute('id', `${atr}`)
+
+        let atrB = elDiv[elDivB.indexOf(d0)].getAttribute('id')
+        
+        elDiv[elDivB.indexOf(d0)].setAttribute('id', `${elDiv[elDivB.indexOf(target)].getAttribute('id')}`)
+        elDiv[elDivB.indexOf(target)].setAttribute('id', `${atrB}`)
         }
        }
       
@@ -219,7 +268,16 @@ const tagEl = document.querySelectorAll('#TAG DIV') as NodeListOf<Element>
             let atr = elDiv[demoArr[i]].getAttribute('id')
             elDiv[demoArr[i]].setAttribute('id', `${elDiv[a].getAttribute('id')}`)
             elDiv[a].setAttribute('id', `${atr}`)
+            // a = demoArr[i]
+            console.log(elDiv[a])
+            
+            let atrB = elDivB[demoArr[i]].getAttribute('id')
+            elDivB[demoArr[i]].setAttribute('id', `${elDivB[a].getAttribute('id')}`)
+            elDivB[a].setAttribute('id', `${atrB}`)
             a = demoArr[i]
+            console.log(elDivB[a])
+           
+            
             
           }
         }

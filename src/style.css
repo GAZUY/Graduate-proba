@@ -464,7 +464,7 @@ img {
   position: absolute;
   
   box-sizing: border-box;
-  transform: rotateY(180deg) translateZ(23px) translateY(28px) translateX(-10px);
+  transform: translateZ(-23px) translateY(28px) translateX(10px);
   transform-origin: center;
   /* transform: translateZ(-23px) translateY(28px) translateX(10px); */
     line-height: 0;
