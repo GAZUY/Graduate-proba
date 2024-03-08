@@ -39,22 +39,28 @@ document.addEventListener('keydown', function(e){
 
 document.addEventListener('DOMContentLoaded',function(){
  
-  let x = 0
-  let y = 0
+  cube.dataset.x = '0'
+  cube.dataset.y = '0'
+  
   document.onmousedown = function(event){
+    let x = 0
+    let y = 0
     cube.classList.remove('rotate')
     let target = event;
     let disX = target.clientX - y
     let disY = target.clientY - x
-      document.onmousemove = function(event){
-        let target = event;
-        x = target.clientX - disX
-        y = target.clientY - disY
-        cube.style.transform = '  rotateY('+x+'deg) rotateX('+(-y)+'deg)'
-      };
-      document.onmouseup = function(){
-          document.onmousemove = null
-          document.onmouseup = null
+    document.onmousemove = function(event){
+      let target = event;
+      x = target.clientX - disX
+      y = target.clientY - disY
+      cube.style.transform = '  rotateY('+cube.dataset.x+x+'deg) rotateX('+(+cube.dataset.y-y)+'deg)'
+    };
+    document.onmouseup = function(){
+      document.onmousemove = null
+      document.onmouseup = null
+      cube.dataset.x = x.toString()
+      cube.dataset.y = y.toString()
+      
       };
       return false
   }
@@ -147,11 +153,11 @@ shuffleArray(elDiv.indexOf(d0))
 tag.onclick = function(event){
   let target = event.target as any
   
-    if (target.tagName == 'DIV'){
+    if (target.id){
        let d0 = tag.querySelector('#D0') as HTMLDivElement
        let d0B = elDivBack.querySelector('#D0') as HTMLDivElement
        demoArr.push(elDiv.indexOf(target))
-      
+       console.log(demoArr)
        if (elDiv.indexOf(d0) == 7 && elDiv.indexOf(target) == 8 || elDiv.indexOf(d0) == 8 && elDiv.indexOf(target) == 7 ||
        elDiv.indexOf(d0) == 3 && elDiv.indexOf(target) == 4 || elDiv.indexOf(d0) == 4 && elDiv.indexOf(target) == 3 ||
        elDiv.indexOf(d0) == 11 && elDiv.indexOf(target) == 12 || elDiv.indexOf(d0) == 12 && elDiv.indexOf(target) == 11)
@@ -178,7 +184,7 @@ tag.onclick = function(event){
 elDivBack.onclick = function(event){
   let target = event.target as any
   
-    if (target.tagName == 'DIV'){
+    if (target.id){
        let d0 = elDivBack.querySelector('#D0') as HTMLDivElement
        demoArr.push(elDivB.indexOf(target))
       
@@ -232,19 +238,20 @@ elDivBack.onclick = function(event){
 // ========================================================================= 
 
 
-const tagEl = document.querySelectorAll('#TAG DIV') as NodeListOf<Element>
-      for (let i = 0; i< 16; i ++){
-        if(parseInt(String(elDiv[i].getAttribute('id'))) ==  (i+1) && i == 15){
+// const tagEl = document.querySelectorAll('#TAG DIV') as NodeListOf<Element>
+//       for (let i = 0; i< 16; i ++){
+//         if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1) && i == 15){
         
-            tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`) 
-          }else{
-            break
+//             tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`) 
+//           }else{
+//             break
           
-        }
+//         }
 
-      }
+//       }
 
 
+     
       function wait(ms: number) {
         return new Promise((resolve)=>{setTimeout(()=>resolve(true),ms)})
       }
@@ -262,25 +269,66 @@ const tagEl = document.querySelectorAll('#TAG DIV') as NodeListOf<Element>
               demoArr.splice(i+1,2)
             }
           }
+          
           let a = demoArr[demoArr.length - 1]
-          for (let i = demoArr.length - 2; i >= 0; i-- ){      
-            await wait(400) 
-            let atr = elDiv[demoArr[i]].getAttribute('id')
-            elDiv[demoArr[i]].setAttribute('id', `${elDiv[a].getAttribute('id')}`)
-            elDiv[a].setAttribute('id', `${atr}`)
-            // a = demoArr[i]
-            console.log(elDiv[a])
+          if (demoArr[demoArr.length - 1] == 15){
+            for (let i = demoArr.length - 2; i >= 0; i-- ){      
+              await wait(400) 
+              let atr = elDiv[demoArr[i]].getAttribute('id')
+              elDiv[demoArr[i]].setAttribute('id', `${elDiv[a].getAttribute('id')}`)
+              elDiv[a].setAttribute('id', `${atr}`)
+              // a = demoArr[i]
+             
             
-            let atrB = elDivB[demoArr[i]].getAttribute('id')
-            elDivB[demoArr[i]].setAttribute('id', `${elDivB[a].getAttribute('id')}`)
-            elDivB[a].setAttribute('id', `${atrB}`)
-            a = demoArr[i]
-            console.log(elDivB[a])
-           
+              let atrB = elDivB[demoArr[i]].getAttribute('id')
+              elDivB[demoArr[i]].setAttribute('id', `${elDivB[a].getAttribute('id')}`)
+              elDivB[a].setAttribute('id', `${atrB}`)
+              a = demoArr[i] 
+            }
+            demoArr = []
+          }else{
+            demoArr.unshift(15) 
+            for (let i = demoArr.length - 2; i >=0; i-- ){
+                   
+              await wait(400) 
+              let atr = elDiv[demoArr[i]].getAttribute('id')
+              elDiv[demoArr[i]].setAttribute('id', `${elDiv[a].getAttribute('id')}`)
+              elDiv[a].setAttribute('id', `${atr}`)
+              // a = demoArr[i]
+              console.log(elDiv[a])
             
-            
+              let atrB = elDivB[demoArr[i]].getAttribute('id')
+              elDivB[demoArr[i]].setAttribute('id', `${elDivB[a].getAttribute('id')}`)
+              elDivB[a].setAttribute('id', `${atrB}`)
+              a = demoArr[i] 
+            }
+            demoArr = []
           }
+          
         }
+        // let tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
+        // console.log (tagEl)
+        // let i = 0
+        // console.log(parseInt(String(tagEl[2].getAttribute('id'))))
+        // while( i = 16){
+        //   if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1)){
+        //     i++ 
+        //   }else{
+        //     break
+        //   }
+        // }
+        // tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`)
+        // for (let i = 0; i< 16; i ++){
+        //   console.log (tagEl[i].getAttribute('id'))
+        //   if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1) && i == 15){
+          
+        //       tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`) 
+        //     }else{
+        //       break
+            
+        //   }
+  
+        // }
       }
 function el(value: HTMLDivElement, index: number, array: HTMLDivElement[]): void {
   throw new Error('Function not implemented.')
