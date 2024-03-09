@@ -23,16 +23,15 @@ import { setupCounter } from './counter.ts'
 
 // setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 let cube = document.querySelector('.cube') as HTMLElement
-cube.classList.add('rotate')
 
 let x = 0,
     y = 0;
 
 document.addEventListener('keydown', function(e){
-  if(e.code == 'ArrowLeft') y -= 3
-  if(e.code == 'ArrowRight') y += 3
-  if(e.code == 'ArrowUp') x += 3
-  if(e.code == 'ArrowDown') x -= 3
+  if(e.code == 'ArrowLeft') y -= 5
+  if(e.code == 'ArrowRight') y += 5
+  if(e.code == 'ArrowUp') x += 5
+  if(e.code == 'ArrowDown') x -= 5
  
  cube.style.transform = `rotateY(${y}deg) rotateX(${x}deg)`;
 });
@@ -42,7 +41,6 @@ document.addEventListener('DOMContentLoaded',function(){
   let x = 0
   let y = 0
   document.onmousedown = function(event){
-    cube.classList.remove('rotate')
     let target = event;
     let disX = target.clientX - y
     let disY = target.clientY - x
