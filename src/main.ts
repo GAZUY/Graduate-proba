@@ -112,6 +112,9 @@ const tag = document.querySelector('.front') as HTMLDivElement
 let elDivBack = document.querySelector('.back') as HTMLDivElement
 let elDiv: HTMLDivElement[] = []
 let elDivB: HTMLDivElement[] = []
+let demoArr: number[] = []
+
+
 for (let i = 1; i < 16; i ++){
   elDiv.push(document.createElement ('div'))
   elDivB.push(document.createElement ('div'))
@@ -123,12 +126,27 @@ elDivB.push(document.createElement ('div'))
   elDiv[15].setAttribute('id', `D${0}`)
   elDivB[15].setAttribute('id', `D${0}`)
 
-  let demoArr: number[] = []
+  elDivB.map((el) => elDivBack.appendChild(el))
+elDiv.map((el) =>  tag.appendChild(el))
+
+
+
+  reset.onclick = async function(event){
+    let target = event.target as HTMLButtonElement
+    if (target) {
+      let d0 = document.querySelector('#D0') as HTMLDivElement
+      shuffleArray(elDiv.indexOf(d0))
+      console.log(demoArr)
+    }
+  }
+
+ 
   //=======================================================
   // перемешиваем массив перемещая id с элемента на элемент в случайном порядкеЭ но с условием перемещения (верхЭ низ, право, лево). заполняем родительский DIV элементами массива. Записываем ходы в массив.
 
 
 function shuffleArray (indexD0:number){
+  demoArr = []
   let whereToMove 
   do {
    let round = []
@@ -169,22 +187,19 @@ function shuffleArray (indexD0:number){
 
 
 // elDiv.forEach((el) => elDivB.push(el))
-elDivB.map((el) => elDivBack.appendChild(el))
-elDiv.map((el) => {
-  // debugger
-  tag.appendChild(el)
-})
+// elDivB.map((el) => elDivBack.appendChild(el))
+// elDiv.map((el) =>  tag.appendChild(el))
  
- console.log(elDiv)
- console.log(elDivB)
- console.log(demoArr)
+//  console.log(elDiv)
+//  console.log(elDivB)
+ 
  //======================================================================
 //  прописываем логику игры (обмен ID). Добавляем все ходы в массив.
  
 
 
-let d0 = document.querySelector('#D0') as HTMLDivElement
-shuffleArray(elDiv.indexOf(d0)) 
+// let d0 = document.querySelector('#D0') as HTMLDivElement
+// shuffleArray(elDiv.indexOf(d0)) 
 tag.onclick = function(event){
   let target = event.target as any
   
@@ -192,7 +207,6 @@ tag.onclick = function(event){
        let d0 = tag.querySelector('#D0') as HTMLDivElement
        let d0B = elDivBack.querySelector('#D0') as HTMLDivElement
        demoArr.push(elDiv.indexOf(target))
-       console.log(demoArr)
        if (elDiv.indexOf(d0) == 7 && elDiv.indexOf(target) == 8 || elDiv.indexOf(d0) == 8 && elDiv.indexOf(target) == 7 ||
        elDiv.indexOf(d0) == 3 && elDiv.indexOf(target) == 4 || elDiv.indexOf(d0) == 4 && elDiv.indexOf(target) == 3 ||
        elDiv.indexOf(d0) == 11 && elDiv.indexOf(target) == 12 || elDiv.indexOf(d0) == 12 && elDiv.indexOf(target) == 11)
@@ -213,6 +227,8 @@ tag.onclick = function(event){
       
         
     }
+    console.log(demoArr)
+  
 }
 
 
@@ -243,6 +259,7 @@ elDivBack.onclick = function(event){
       
         
     }
+    console.log(demoArr)
 }
 
 
@@ -304,24 +321,9 @@ elDivBack.onclick = function(event){
               demoArr.splice(i+1,2)
             }
           }
-          
+          console.log(demoArr)
           let a = demoArr[demoArr.length - 1]
-          if (demoArr[demoArr.length - 1] == 15){
-            for (let i = demoArr.length - 2; i >= 0; i-- ){      
-              await wait(400) 
-              let atr = elDiv[demoArr[i]].getAttribute('id')
-              elDiv[demoArr[i]].setAttribute('id', `${elDiv[a].getAttribute('id')}`)
-              elDiv[a].setAttribute('id', `${atr}`)
-              // a = demoArr[i]
-             
-            
-              let atrB = elDivB[demoArr[i]].getAttribute('id')
-              elDivB[demoArr[i]].setAttribute('id', `${elDivB[a].getAttribute('id')}`)
-              elDivB[a].setAttribute('id', `${atrB}`)
-              a = demoArr[i] 
-            }
-            demoArr = []
-          }else{
+
             demoArr.unshift(15) 
             for (let i = demoArr.length - 2; i >=0; i-- ){
                    
@@ -338,9 +340,9 @@ elDivBack.onclick = function(event){
               a = demoArr[i] 
             }
             demoArr = []
-          }
-          
         }
+          
+      }
         // let tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
         // console.log (tagEl)
         // let i = 0
@@ -364,7 +366,7 @@ elDivBack.onclick = function(event){
         //   }
   
         // }
-      }
+      
 function el(value: HTMLDivElement, index: number, array: HTMLDivElement[]): void {
   throw new Error('Function not implemented.')
 }
