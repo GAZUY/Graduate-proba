@@ -116,66 +116,93 @@ body {
   -webkit-background-size: cover;
   background-size: cover;
   /* border: solid 3px rgb(24, 70, 56); */
-  border: solid 3px rgb(69, 235, 119);
+  /* border: solid 3px rgb(69, 235, 119);
   border-radius: 0px;
   box-shadow:     0 0 7px #fff,
   0 0 10px #fff,
   0 0 21px #fff,
-  0 0 42px #0fa;
+  0 0 42px #0fa; */
   /* 0 0 82px #0fa,
   0 0 92px #0fa,
   0 0 102px #0fa,
   0 0 151px #0fa; */
-  color: #ffffff;
+  /* color: #ffffff;
   border-radius: 20%;
   margin: 2.5px;
-  padding: 2px;
+  padding: 2px; */
+}
+#B1, #B2, #B3, #B4, #B5, #B6, #B7, #B8, #B9, #B10, #B11, #B12, #B13, #B14, #B15, #B0 {
+  box-sizing: border-box; 
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+   /* border: solid #cd6165 4px; */
+  /* background-color: #acd7bc;  */
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  /* border: solid 3px rgb(24, 70, 56); */
+  /* border: solid 3px rgb(69, 235, 119);
+  border-radius: 0px;
+  box-shadow:     0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff,
+  0 0 42px #0fa; */
+  /* 0 0 82px #0fa,
+  0 0 92px #0fa,
+  0 0 102px #0fa,
+  0 0 151px #0fa; */
+  /* color: #ffffff;
+  border-radius: 20%;
+  margin: 2.5px;
+  padding: 2px; */
 }
 #D1 {
-  background-image: url('/pictures/TAG1.jpg');
+  background-image: url('/pictures/tagF1.png');
 }
 #D2 {
-  background-image: url('/pictures/TAG2.jpg');
+  background-image: url('/pictures/tagF2.png');
 }
 #D3 {
-  background-image: url('/pictures/TAG3.jpg');
+  background-image: url('/pictures/tagF3.png');
 }
 #D4 {
-  background-image: url('/pictures/TAG4.jpg');
+  background-image: url('/pictures/tagF4.png');
 }
 #D5 {
-  background-image: url('/pictures/TAG5.jpg');
+  background-image: url('/pictures/tagF5.png');
 }
 #D6 {
-  background-image: url('/pictures/TAG6.jpg');
+  background-image: url('/pictures/tagF6.png');
 }
 #D7 {
-  background-image: url('/pictures/TAG7.jpg');
+  background-image: url('/pictures/tagF7.png');
 }
 #D8 {
-  background-image: url('/pictures/TAG8.jpg');
+  background-image: url('/pictures/tagF8.png');
 }
 #D9 {
-  background-image: url('/pictures/TAG9.jpg');
+  background-image: url('/pictures/tagF9.png');
 }
 #D10 {
-  background-image: url('/pictures/TAG10.jpg');
+  background-image: url('/pictures/tagF10.png');
 }
 #D11 {
-  background-image: url('/pictures/TAG11.jpg');
+  background-image: url('/pictures/tagF11.png');
 }
 #D12 {
-  background-image: url('/pictures/TAG12.jpg');
+  background-image: url('/pictures/tagF12.png');
 }
 #D13 {
-  background-image: url('/pictures/TAG13.jpg');
+  background-image: url('/pictures/tagF13.png');
 }
 #D14 {
-  background-image: url('/pictures/TAG14.jpg');
+  background-image: url('/pictures/tagF14.png');
 
 }
 #D15 {
-  background-image: url('/pictures/TAG15.jpg');
+  background-image: url('/pictures/tagF15.png');
 
 }
 
@@ -184,6 +211,62 @@ body {
   display: inline-block;
   width: 100px;
   height: 100px;
-  border: solid #cd6165 2px;
+  /* border: solid #cd6165 2px; */
+  /* background-color: #ecd8c8; */
+}
+#B1 {
+  background-image: url('/pictures/tagB1.png');
+}
+#B2 {
+  background-image: url('/pictures/tagB2.png');
+}
+#B3 {
+  background-image: url('/pictures/tagB3.png');
+}
+#B4 {
+  background-image: url('/pictures/tagB4.png');
+}
+#B5 {
+  background-image: url('/pictures/tagB5.png');
+}
+#B6 {
+  background-image: url('/pictures/tagB6.png');
+}
+#B7 {
+  background-image: url('/pictures/tagB7.png');
+}
+#B8 {
+  background-image: url('/pictures/tagB8.png');
+}
+#B9 {
+  background-image: url('/pictures/tagB9.png');
+}
+#B10 {
+  background-image: url('/pictures/tagB10.png');
+}
+#B11 {
+  background-image: url('/pictures/tagB11.png');
+}
+#B12 {
+  background-image: url('/pictures/tagB12.png');
+}
+#B13 {
+  background-image: url('/pictures/tagB13.png');
+}
+#B14 {
+  background-image: url('/pictures/tagB14.png');
+
+}
+#B15 {
+  background-image: url('/pictures/tagB15.png');
+
+}
+
+#B0 {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  /* border: solid #cd6165 2px; */
   /* background-color: #ecd8c8; */
 }

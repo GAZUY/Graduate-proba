@@ -38,17 +38,22 @@ document.addEventListener('keydown', function(e){
 
 document.addEventListener('DOMContentLoaded',function(){
  
-  let x = 0
-  let y = 0
+ 
   document.onmousedown = function(event){
+
+    let x = 0
+    let y = 0
     let target = event;
     let disX = target.clientX - y
     let disY = target.clientY - x
+  
       document.onmousemove = function(event){
         let target = event;
         x = target.clientX - disX
         y = target.clientY - disY
-        cube.style.transform = '  rotateY('+x+'deg) rotateX('+(-y)+'deg)'
+    
+        cube.style.transform = '  rotateY('+x/2+'deg) rotateX('+(y/2)+'deg)'
+        // console.log (timeDown.getMilliseconds() - timeMove.getMilliseconds())
       };
       document.onmouseup = function(){
           document.onmousemove = null
@@ -119,12 +124,12 @@ for (let i = 1; i < 16; i ++){
   elDiv.push(document.createElement ('div'))
   elDivB.push(document.createElement ('div'))
   elDiv[i-1].setAttribute('id', `D${i}`)
-  elDivB[i-1].setAttribute('id', `D${i}`)
+  elDivB[i-1].setAttribute('id', `B${i}`)
 }
 elDiv.push(document.createElement ('div'))
 elDivB.push(document.createElement ('div'))
   elDiv[15].setAttribute('id', `D${0}`)
-  elDivB[15].setAttribute('id', `D${0}`)
+  elDivB[15].setAttribute('id', `B${0}`)
 
   elDivB.map((el) => elDivBack.appendChild(el))
 elDiv.map((el) =>  tag.appendChild(el))
@@ -206,7 +211,7 @@ tag.onclick = function(event){
     if (target.id){
        let d0 = tag.querySelector('#D0') as HTMLDivElement
        let d0B = elDivBack.querySelector('#D0') as HTMLDivElement
-       demoArr.push(elDiv.indexOf(target))
+       
        if (elDiv.indexOf(d0) == 7 && elDiv.indexOf(target) == 8 || elDiv.indexOf(d0) == 8 && elDiv.indexOf(target) == 7 ||
        elDiv.indexOf(d0) == 3 && elDiv.indexOf(target) == 4 || elDiv.indexOf(d0) == 4 && elDiv.indexOf(target) == 3 ||
        elDiv.indexOf(d0) == 11 && elDiv.indexOf(target) == 12 || elDiv.indexOf(d0) == 12 && elDiv.indexOf(target) == 11)
@@ -214,6 +219,7 @@ tag.onclick = function(event){
         
        }else{
          if (Math.max(elDiv.indexOf(d0), elDiv.indexOf(target)) - Math.min(elDiv.indexOf(d0), elDiv.indexOf(target)) == 1 || Math.max(elDiv.indexOf(d0), elDiv.indexOf(target)) - Math.min(elDiv.indexOf(d0), elDiv.indexOf(target)) == 4){
+          demoArr.push(elDiv.indexOf(target))
         let atr = elDiv[elDiv.indexOf(d0)].getAttribute('id')
         elDiv[elDiv.indexOf(d0)].setAttribute('id', `${elDiv[elDiv.indexOf(target)].getAttribute('id')}`)
         elDiv[elDiv.indexOf(target)].setAttribute('id', `${atr}`)
@@ -237,7 +243,7 @@ elDivBack.onclick = function(event){
   
     if (target.id){
        let d0 = elDivBack.querySelector('#D0') as HTMLDivElement
-       demoArr.push(elDivB.indexOf(target))
+       
       
        if (elDivB.indexOf(d0) == 7 && elDivB.indexOf(target) == 8 || elDivB.indexOf(d0) == 8 && elDivB.indexOf(target) == 7 ||
        elDivB.indexOf(d0) == 3 && elDivB.indexOf(target) == 4 || elDivB.indexOf(d0) == 4 && elDivB.indexOf(target) == 3 ||
@@ -246,6 +252,8 @@ elDivBack.onclick = function(event){
         
        }else{
          if (Math.max(elDivB.indexOf(d0), elDivB.indexOf(target)) - Math.min(elDivB.indexOf(d0), elDivB.indexOf(target)) == 1 || Math.max(elDivB.indexOf(d0), elDivB.indexOf(target)) - Math.min(elDivB.indexOf(d0), elDivB.indexOf(target)) == 4){
+          demoArr.push(elDivB.indexOf(target))
+          console.log (elDivB.indexOf(target))
         let atr = elDivB[elDivB.indexOf(d0)].getAttribute('id')
         elDivB[elDivB.indexOf(d0)].setAttribute('id', `${elDivB[elDivB.indexOf(target)].getAttribute('id')}`)
         elDivB[elDivB.indexOf(target)].setAttribute('id', `${atr}`)
