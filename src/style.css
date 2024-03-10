@@ -80,17 +80,17 @@ body {
   box-sizing: border-box;
   transform: translateZ(-23px) translateY(28px) translateX(10px);
   transform-origin: center;
-  /* transform: translateZ(-23px) translateY(28px) translateX(10px); */
     line-height: 0;
-   /* position: absolute; 
-  transform: translateY(-92px) rotateY(180deg) translateZ(5px);
-  transform-origin: center top;
-  width: 100px;
-  height: 100px;
-  background-image: url('/pictures/html.png');
-  background-position: center;
-  -webkit-background-size: cover;
-  background-size: cover; */
+ 
+}
+.picture{
+  position: absolute;
+  
+  box-sizing: border-box;
+  transform: translateZ(-24px) translateY(28px) translateX(10px);
+  transform-origin: center;
+    line-height: 0;
+ 
 }
 .front {
   position: absolute;
@@ -107,56 +107,33 @@ body {
 #D1, #D2, #D3, #D4, #D5, #D6, #D7, #D8, #D9, #D10, #D11, #D12, #D13, #D14, #D15, #D0 {
   box-sizing: border-box; 
   display: inline-block;
-  width: 104px;
+  width: 105px;
   height: 106px;
   text-align: center;
-   /* border: solid #cd6165 4px; */
-  /* background-color: #acd7bc;  */
   background-position: center;
   -webkit-background-size: cover;
   background-size: cover;
-  /* border: solid 3px rgb(24, 70, 56); */
-  /* border: solid 3px rgb(69, 235, 119);
-  border-radius: 0px;
-  box-shadow:     0 0 7px #fff,
-  0 0 10px #fff,
-  0 0 21px #fff,
-  0 0 42px #0fa; */
-  /* 0 0 82px #0fa,
-  0 0 92px #0fa,
-  0 0 102px #0fa,
-  0 0 151px #0fa; */
-  /* color: #ffffff;
-  border-radius: 20%;
-  margin: 2.5px;*/
-  padding: 2px; 
+   
 }
 #B1, #B2, #B3, #B4, #B5, #B6, #B7, #B8, #B9, #B10, #B11, #B12, #B13, #B14, #B15, #B0 {
   box-sizing: border-box; 
   display: inline-block;
-  width: 104px;
+  width: 105px;
   height: 106px;
   text-align: center;
-   /* border: solid #cd6165 4px; */
-  /* background-color: #acd7bc;  */
   background-position: center;
   -webkit-background-size: cover;
   background-size: cover;
-  /* border: solid 3px rgb(24, 70, 56); */
-  /* border: solid 3px rgb(69, 235, 119);
-  border-radius: 0px;
-  box-shadow:     0 0 7px #fff,
-  0 0 10px #fff,
-  0 0 21px #fff,
-  0 0 42px #0fa; */
-  /* 0 0 82px #0fa,
-  0 0 92px #0fa,
-  0 0 102px #0fa,
-  0 0 151px #0fa; */
-  /* color: #ffffff;
-  border-radius: 20%;
-  margin: 2.5px;
-  padding: 2px; */
+}
+#P1, #P2, #P3, #P4, #P5, #P6, #P7, #P8, #P9, #P10, #P11, #P12, #P13, #P14, #P15, #P0 {
+  box-sizing: border-box; 
+  display: inline-block;
+  width: 105px;
+  height: 106px;
+  text-align: center;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 #D1 {
   background-image: url('/pictures/tagF1.png');
@@ -206,14 +183,12 @@ body {
 
 }
 
-#D0 {
+/* #D0 {
   box-sizing: border-box;
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  /* border: solid #cd6165 2px; */
-  /* background-color: #ecd8c8; */
-}
+  width: 104px;
+  height: 106px;
+} */
 #B1 {
   background-image: url('/pictures/tagB1.png');
 }
@@ -259,14 +234,62 @@ body {
 }
 #B15 {
   background-image: url('/pictures/tagB15.png');
-
 }
 
 #B0 {
   box-sizing: border-box;
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  /* border: solid #cd6165 2px; */
-  /* background-color: #ecd8c8; */
+  width: 105px;
+  height: 106px;
+  background-color: rgb(221, 240, 249);
+}
+#P1 {
+  background-image: url('/pictures/1.jpg');
+}
+#P2 {
+  background-image: url('/pictures/2.jpg');
+}
+#P3 {
+  background-image: url('/pictures/3.jpg');
+}
+#P4 {
+  background-image: url('/pictures/4.jpg');
+}
+#P5 {
+  background-image: url('/pictures/5.jpg');
+}
+#P6 {
+  background-image: url('/pictures/6.jpg');
+}
+#P7 {
+  background-image: url('/pictures/7.jpg');
+}
+#P8 {
+  background-image: url('/pictures/8.jpg');
+}
+#P9 {
+  background-image: url('/pictures/9.jpg');
+}
+#P10 {
+  background-image: url('/pictures/10.jpg');
+}
+#P11 {
+  background-image: url('/pictures/11.jpg');
+}
+#P12 {
+  background-image: url('/pictures/12.jpg');
+}
+#P13 {
+  background-image: url('/pictures/13.jpg');
+}
+#P14 {
+  background-image: url('/pictures/14.jpg');
+
+}
+#P15 {
+  background-image: url('/pictures/15.jpg');
+}
+
+#P0 {
+  background-image: url('/pictures/16.jpg');
 }
