@@ -107,8 +107,8 @@ body {
 #D1, #D2, #D3, #D4, #D5, #D6, #D7, #D8, #D9, #D10, #D11, #D12, #D13, #D14, #D15, #D0 {
   box-sizing: border-box; 
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 104px;
+  height: 106px;
   text-align: center;
    /* border: solid #cd6165 4px; */
   /* background-color: #acd7bc;  */
@@ -128,14 +128,14 @@ body {
   0 0 151px #0fa; */
   /* color: #ffffff;
   border-radius: 20%;
-  margin: 2.5px;
-  padding: 2px; */
+  margin: 2.5px;*/
+  padding: 2px; 
 }
 #B1, #B2, #B3, #B4, #B5, #B6, #B7, #B8, #B9, #B10, #B11, #B12, #B13, #B14, #B15, #B0 {
   box-sizing: border-box; 
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 104px;
+  height: 106px;
   text-align: center;
    /* border: solid #cd6165 4px; */
   /* background-color: #acd7bc;  */
@@ -221,7 +221,7 @@ body {
   background-image: url('/pictures/tagB2.png');
 }
 #B3 {
-  background-image: url('/pictures/tagB3.png');
+  background-image: url('/pictures/proba.png');
 }
 #B4 {
   background-image: url('/pictures/tagB4.png');

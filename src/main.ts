@@ -145,6 +145,7 @@ elDiv.map((el) =>  tag.appendChild(el))
     }
   }
 
+
  
   //=======================================================
   // перемешиваем массив перемещая id с элемента на элемент в случайном порядкеЭ но с условием перемещения (верхЭ низ, право, лево). заполняем родительский DIV элементами массива. Записываем ходы в массив.
@@ -159,11 +160,15 @@ function shuffleArray (indexD0:number){
    if (indexD0 - 4 <= 15 && 0 <= indexD0 - 4 ) round.push(indexD0 - 4)
    if (indexD0 + 1 <= 15 && 0 <= indexD0 + 1 && indexD0 !=3 && indexD0 !=7 && indexD0 !=11) round.push(indexD0 + 1)
    if (indexD0 - 1 <= 15 && 0 <= indexD0 - 1 && indexD0 !=4 && indexD0 !=8 && indexD0 !=12) round.push(indexD0 - 1)
+  // {debugger}
    whereToMove = round[Math.floor(Math.random() * round.length)]
    let atr1 = elDiv[indexD0].getAttribute('id')
+   console.log (atr1)
+   
         elDiv[indexD0].setAttribute('id', `${elDiv[whereToMove].getAttribute('id')}`)
         elDiv[whereToMove].setAttribute('id', `${atr1}`)
-        let atr1B = elDivB[indexD0].getAttribute('id')
+   let atr1B = elDivB[indexD0].getAttribute('id')
+   console.log (atr1B)
         elDivB[indexD0].setAttribute('id', `${elDivB[whereToMove].getAttribute('id')}`)
         elDivB[whereToMove].setAttribute('id', `${atr1B}`)
         indexD0 = whereToMove 
@@ -176,18 +181,43 @@ function shuffleArray (indexD0:number){
     if (indexD0 - 4 <= 15 && 0 <= indexD0 - 4 ) round.push(indexD0 - 4)
     if (indexD0 + 1 <= 15 && 0 <= indexD0 + 1 && indexD0 !=3 && indexD0 !=7 && indexD0 !=11) round.push(indexD0 + 1)
     if (indexD0 - 1 <= 15 && 0 <= indexD0 - 1 && indexD0 !=4 && indexD0 !=8 && indexD0 !=12) round.push(indexD0 - 1)
+   // {debugger}
     whereToMove = round[Math.floor(Math.random() * round.length)]
     let atr1 = elDiv[indexD0].getAttribute('id')
-        elDiv[indexD0].setAttribute('id', `${elDivB[whereToMove].getAttribute('id')}`)
-        elDiv[whereToMove].setAttribute('id', `${atr1}`)
-        let atr1B = elDivB[indexD0].getAttribute('id')
-        elDivB[indexD0].setAttribute('id', `${elDivB[whereToMove].getAttribute('id')}`)
-        elDivB[whereToMove].setAttribute('id', `${atr1B}`)
-        indexD0 = whereToMove 
-        demoArr.push(indexD0)   
+    console.log (atr1)
+    
+         elDiv[indexD0].setAttribute('id', `${elDiv[whereToMove].getAttribute('id')}`)
+         elDiv[whereToMove].setAttribute('id', `${atr1}`)
+    let atr1B = elDivB[indexD0].getAttribute('id')
+    console.log (atr1B)
+         elDivB[indexD0].setAttribute('id', `${elDivB[whereToMove].getAttribute('id')}`)
+         elDivB[whereToMove].setAttribute('id', `${atr1B}`)
+         indexD0 = whereToMove 
+         demoArr.push(indexD0)   
+       
+   } while (indexD0 != 15);
+  // do {
+  //   let round = []
+  //   if (indexD0 + 4 <= 15 && 0 <= indexD0 + 4 ) round.push(indexD0 + 4)
+  //   if (indexD0 - 4 <= 15 && 0 <= indexD0 - 4 ) round.push(indexD0 - 4)
+  //   if (indexD0 + 1 <= 15 && 0 <= indexD0 + 1 && indexD0 !=3 && indexD0 !=7 && indexD0 !=11) round.push(indexD0 + 1)
+  //   if (indexD0 - 1 <= 15 && 0 <= indexD0 - 1 && indexD0 !=4 && indexD0 !=8 && indexD0 !=12) round.push(indexD0 - 1)
+  //   whereToMove = round[Math.floor(Math.random() * round.length)]
+  //   let atr2 = elDiv[indexD0].getAttribute('id')
+  //   console.log (atr2)
+  //       elDiv[indexD0].setAttribute('id', `${elDivB[whereToMove].getAttribute('id')}`)
+  //       elDiv[whereToMove].setAttribute('id', `${atr2}`)
+  //   let atr2B = elDivB[indexD0].getAttribute('id')
+  //   console.log (atr2B)
+  //       elDivB[indexD0].setAttribute('id', `${elDivB[whereToMove].getAttribute('id')}`)
+  //       elDivB[whereToMove].setAttribute('id', `${atr2B}`)
+  //       indexD0 = whereToMove 
+  //       demoArr.push(indexD0)   
       
-  } while (indexD0 != 15);
+  // } while (indexD0 != 15);
   demoArr.unshift(15)
+  console.log (tag.querySelectorAll ('div'))
+  console.log (elDivBack.querySelectorAll ('div'))
 }
 
 
@@ -242,26 +272,26 @@ elDivBack.onclick = function(event){
   let target = event.target as any
   
     if (target.id){
-       let d0 = elDivBack.querySelector('#D0') as HTMLDivElement
+       let B0 = elDivBack.querySelector('#B0') as HTMLDivElement
        
       
-       if (elDivB.indexOf(d0) == 7 && elDivB.indexOf(target) == 8 || elDivB.indexOf(d0) == 8 && elDivB.indexOf(target) == 7 ||
-       elDivB.indexOf(d0) == 3 && elDivB.indexOf(target) == 4 || elDivB.indexOf(d0) == 4 && elDivB.indexOf(target) == 3 ||
-       elDivB.indexOf(d0) == 11 && elDivB.indexOf(target) == 12 || elDivB.indexOf(d0) == 12 && elDivB.indexOf(target) == 11)
+       if (elDivB.indexOf(B0) == 7 && elDivB.indexOf(target) == 8 || elDivB.indexOf(B0) == 8 && elDivB.indexOf(target) == 7 ||
+       elDivB.indexOf(B0) == 3 && elDivB.indexOf(target) == 4 || elDivB.indexOf(B0) == 4 && elDivB.indexOf(target) == 3 ||
+       elDivB.indexOf(B0) == 11 && elDivB.indexOf(target) == 12 || elDivB.indexOf(B0) == 12 && elDivB.indexOf(target) == 11)
        {
         
        }else{
-         if (Math.max(elDivB.indexOf(d0), elDivB.indexOf(target)) - Math.min(elDivB.indexOf(d0), elDivB.indexOf(target)) == 1 || Math.max(elDivB.indexOf(d0), elDivB.indexOf(target)) - Math.min(elDivB.indexOf(d0), elDivB.indexOf(target)) == 4){
+         if (Math.max(elDivB.indexOf(B0), elDivB.indexOf(target)) - Math.min(elDivB.indexOf(B0), elDivB.indexOf(target)) == 1 || Math.max(elDivB.indexOf(B0), elDivB.indexOf(target)) - Math.min(elDivB.indexOf(B0), elDivB.indexOf(target)) == 4){
           demoArr.push(elDivB.indexOf(target))
           console.log (elDivB.indexOf(target))
-        let atr = elDivB[elDivB.indexOf(d0)].getAttribute('id')
-        elDivB[elDivB.indexOf(d0)].setAttribute('id', `${elDivB[elDivB.indexOf(target)].getAttribute('id')}`)
-        elDivB[elDivB.indexOf(target)].setAttribute('id', `${atr}`)
+        let atrB = elDivB[elDivB.indexOf(B0)].getAttribute('id')
+        elDivB[elDivB.indexOf(B0)].setAttribute('id', `${elDivB[elDivB.indexOf(target)].getAttribute('id')}`)
+        elDivB[elDivB.indexOf(target)].setAttribute('id', `${atrB}`)
 
-        let atrB = elDiv[elDivB.indexOf(d0)].getAttribute('id')
+        let atr = elDiv[elDivB.indexOf(B0)].getAttribute('id')
         
-        elDiv[elDivB.indexOf(d0)].setAttribute('id', `${elDiv[elDivB.indexOf(target)].getAttribute('id')}`)
-        elDiv[elDivB.indexOf(target)].setAttribute('id', `${atrB}`)
+        elDiv[elDivB.indexOf(B0)].setAttribute('id', `${elDiv[elDivB.indexOf(target)].getAttribute('id')}`)
+        elDiv[elDivB.indexOf(target)].setAttribute('id', `${atr}`)
         }
        }
       
