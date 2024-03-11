@@ -13,28 +13,36 @@ url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-1.png), url('/pictures/1614567459_25-p-planeti-na-belom-fone-33.jpg'), url('/pictures/d20286174c8c8b16f4004cc2cdbe686e.jpg') ;
+  background-image: 
+  url('/pictures/d20286174c8c8b16f4004cc2cdbe686e.jpg') ;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center ;
   background-position: 50% 50%;
 }
-h1 {
+
+#planet {
   position: absolute;
-  top: 47%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-family: "Arial";
-  text-transform: uppercase;
-  opacity: .2;
-  font-size: 70px;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/pictures/planeta.png');
+  background-repeat: no-repeat;
 }
+#korabl {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 20%;
+  left: 20%;
+  background-image: url('/pictures/korabl.png');
+  background-repeat: no-repeat;
+}
+
 
 /* ================================================================ -->*/
 .wrap {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 20%;
+  left: 70%;
   transform: translate(-50%, -50%);
   perspective: 1500px;
   /* perspective-origin: 50% 50%; */

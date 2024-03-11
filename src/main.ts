@@ -5,44 +5,29 @@ import { setupCounter } from './counter.ts'
 
 
 (function() {
-  // Add event listener
+  
   document.addEventListener("mousemove", parallax);
   const elem = document.querySelector("#parallax") as HTMLDivElement;
-  // Magic happens here
+  const elem1 = document.querySelector("#planet") as HTMLDivElement;
+  const elem2 = document.querySelector("#korabl") as HTMLDivElement;
+  
   function parallax(e: { clientX: any; clientY: any; }) {
       let _w = window.innerWidth/2;
       let _h = window.innerHeight/2;
       let _mouseX = e.clientX;
       let _mouseY = e.clientY;
-      let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${50 - (_mouseY - _h) * 0.01}%`;
-      let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${50 - (_mouseY - _h) * 0.02}%`;
-      let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${50 - (_mouseY - _h) * 0.06}%`;
+      let _depth1 = `${50 - (_mouseX - _w) * 0.001}% ${50 - (_mouseY - _h) * 0.001}%`;
+      let _depth2 = `${50 - (_mouseX - _w) * 0.002}% ${50 - (_mouseY - _h) * 0.002}%`;
+      let _depth3 = `${50 - (_mouseX - _w) * 0.006}% ${50 - (_mouseY - _h) * 0.006}%`;
       let x = `${_depth3}, ${_depth2}, ${_depth1}`;
-      console.log(x);
       elem.style.backgroundPosition = x;
+      elem1.style.backgroundPosition = x;
+      elem2.style.backgroundPosition = x;
   }
 
 })();
 
-// document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-//   <div>
-//     <a href="https://vitejs.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://www.typescriptlang.org/" target="_blank">
-//       <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-//     </a>
-//     <h1>Vite + TypeScript</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite and TypeScript logos to learn more
-//     </p>
-//   </div>
-// `
 
-// setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 let cube = document.querySelector('.cube') as HTMLElement
 
 let x = 0,
