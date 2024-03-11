@@ -68,49 +68,7 @@ document.addEventListener('DOMContentLoaded',function(){
       return false
   }
 },false)
-// let cube = document.querySelector('.cube') as HTMLElement
-// cube.classList.add('rotate')
 
-// let x = 0,
-//     y = 0;
-
-// document.addEventListener('keydown', function(e){
-//   if(e.code == 'ArrowLeft') y -= 5
-//   if(e.code == 'ArrowRight') y += 5
-//   if(e.code == 'ArrowUp') x += 5
-//   if(e.code == 'ArrowDown') x -= 5
- 
-//  cube.style.transform = `rotateY(${y}deg) rotateX(${x}deg)`;
-// });
-
-// document.addEventListener('DOMContentLoaded',function(){
- 
-//   cube.dataset.x = '0'
-//   cube.dataset.y = '0'
-  
-//   document.onmousedown = function(event){
-//     let x = 0
-//     let y = 0
-//     cube.classList.remove('rotate')
-//     let target = event;
-//     let disX = target.clientX - y
-//     let disY = target.clientY - x
-//     document.onmousemove = function(event){
-//       let target = event;
-//       x = target.clientX - disX
-//       y = target.clientY - disY
-//       cube.style.transform = '  rotateY('+cube.dataset.x+x+'deg) rotateX('+(+cube.dataset.y-y)+'deg)'
-//     };
-//     document.onmouseup = function(){
-//       document.onmousemove = null
-//       document.onmouseup = null
-//       cube.dataset.x = x.toString()
-//       cube.dataset.y = y.toString()
-      
-//       };
-//       return false
-//   }
-// },false)
 
 //========================================================================================
 
@@ -286,52 +244,15 @@ picture.onclick = function(event){
         elDivB[elDivP.indexOf(P0)].setAttribute('id', `${elDivB[elDivP.indexOf(target)].getAttribute('id')}`)
         elDivB[elDivP.indexOf(target)].setAttribute('id', `${atrB}`)
         }
-       }
-      
-        
+      }    
     }
     console.log(demoArr)
 }
 
 
-
-
-
-// =============================================================
-// demo.onclick = function(event){
-//   let target = event.target as HTMLButtonElement
-//   if (target){
-//     let a = demoArr[demoArr.length - 1]
-//   for (let i = demoArr.length - 2; i >= 0; i-- ){
-//      if (demoArr[i] == demoArr[i-2]) demoArr.splice(demoArr[i-2],1)
-//     (function(i) {
-//     setTimeout(function() {
-//     console.log ('a'+a)
-//     console.log ('demoArr[i]'+demoArr[i])
-//     let atr = elDiv[demoArr[i]].getAttribute('id')
-//         elDiv[demoArr[i]].setAttribute('id', `${elDiv[a].getAttribute('id')}`)
-//         elDiv[a].setAttribute('id', `${atr}`)
-//         a = demoArr[i]
-//     },  1000 + (1000 * i))
-//   })(i)   
-    
-//   }}
-// }
-// console.log(demoArr)
 // ========================================================================= 
 
 
-// const tagEl = document.querySelectorAll('#TAG DIV') as NodeListOf<Element>
-//       for (let i = 0; i< 16; i ++){
-//         if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1) && i == 15){
-        
-//             tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`) 
-//           }else{
-//             break
-          
-//         }
-
-//       }
 
 
      
@@ -378,29 +299,39 @@ picture.onclick = function(event){
         }
           
       }
-        // let tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
-        // console.log (tagEl)
-        // let i = 0
-        // console.log(parseInt(String(tagEl[2].getAttribute('id'))))
-        // while( i = 16){
-        //   if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1)){
-        //     i++ 
-        //   }else{
-        //     break
-        //   }
-        // }
-        // tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`)
-        // for (let i = 0; i< 16; i ++){
-        //   console.log (tagEl[i].getAttribute('id'))
-        //   if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1) && i == 15){
+        let tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
+        console.log (tagEl)
+        let i = 1
+        for (let el of tagEl) {
+          if (parseInt(String(el.getAttribute('id'))) != i){
+            break
+          } if (parseInt(String(el.getAttribute('id'))) == i && i=16){
+            tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`)
+
+          }
+          i++
+
           
-        //       tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`) 
-        //     }else{
-        //       break
+        }
+        while( i = 16){
+          if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1)){
+            i++ 
+          }else{
+            break
+          }
+        }
+        tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`)
+        for (let i = 0; i< 16; i ++){
+          console.log (tagEl[i].getAttribute('id'))
+          if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1) && i == 15){
+          
+              tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`) 
+            }else{
+              break
             
-        //   }
+          }
   
-        // }
+        }
       
 function el(value: HTMLDivElement, index: number, array: HTMLDivElement[]): void {
   throw new Error('Function not implemented.')
