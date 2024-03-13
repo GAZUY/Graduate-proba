@@ -205,9 +205,29 @@ tag.onclick = function(event){
         elDivP[elDiv.indexOf(target)].setAttribute('id', `${atrP}`)
         }
        }
+      //  let tagEl2: any[] = []
+       let tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
+      //  tagEl.forEach((el) => tagEl2.push(el))
+       let i1 = 1
+       for (let el of tagEl) {
+         console.log((String(el.getAttribute('id'))))
+         if ((String(el.getAttribute('id'))) != 'D'+i1){
+         
+         }if ((String(el.getAttribute('id'))) == 'D0' && i1==16 || (String(el.getAttribute('id'))) == 'D0' && i1==16){
+           tag.insertAdjacentHTML('afterbegin', `<div>ПОБЕДА</div>`)
+           console.log('ПОБЕДА')
+          //  tagEl = []
+           demoArr=[]
+          
+
+         }
+         i1 ++  
+       }
+       
       
         
     }
+   
     console.log(demoArr)
   
 }
@@ -284,7 +304,7 @@ picture.onclick = function(event){
               elDiv[demoArr[i]].setAttribute('id', `${elDiv[a].getAttribute('id')}`)
               elDiv[a].setAttribute('id', `${atr}`)
               // a = demoArr[i]
-              console.log(elDiv[a])
+              
             
               let atrB = elDivB[demoArr[i]].getAttribute('id')
               elDivB[demoArr[i]].setAttribute('id', `${elDivB[a].getAttribute('id')}`)
@@ -294,6 +314,8 @@ picture.onclick = function(event){
               elDivP[demoArr[i]].setAttribute('id', `${elDivP[a].getAttribute('id')}`)
               elDivP[a].setAttribute('id', `${atrP}`)
               a = demoArr[i]
+              //=========================================
+             
             }
             demoArr = []
         }
@@ -305,13 +327,12 @@ picture.onclick = function(event){
         // for (let el of tagEl) {
         //   if (parseInt(String(el.getAttribute('id'))) != i){
         //     break
-        //   } if (parseInt(String(el.getAttribute('id'))) == i && i=16){
+        //   } if (parseInt(String(el.getAttribute('id'))) == i && i==16){
         //     tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`)
+        //     console.log('ПОБЕДА')
 
         //   }
-        //   i++
-
-          
+        //   i++  
         // }
         // while( i = 16){
         //   if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1)){

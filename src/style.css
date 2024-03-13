@@ -48,6 +48,7 @@ url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth
   width: 200px;
   height: 400px;
   right:5%;
+  z-index: 3;
 }
 .wrap {
   position: absolute;
