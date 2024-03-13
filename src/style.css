@@ -24,6 +24,8 @@ url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth
   position: absolute;
   width: 100%;
   height: 100vh;
+  top: -10%;
+  left: -10%;
   background-image: url('/pictures/planeta.png');
   background-repeat: no-repeat;
 }
@@ -39,10 +41,18 @@ url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth
 
 
 /* ================================================================ -->*/
+
+.nav {
+  position: absolute;
+  display: block;
+  width: 200px;
+  height: 400px;
+  right:5%;
+}
 .wrap {
   position: absolute;
   top: 20%;
-  left: 70%;
+  left: 50%;
   transform: translate(-50%, -50%);
   perspective: 1500px;
   /* perspective-origin: 50% 50%; */

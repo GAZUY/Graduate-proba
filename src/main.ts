@@ -299,39 +299,39 @@ picture.onclick = function(event){
         }
           
       }
-        let tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
-        console.log (tagEl)
-        let i = 1
-        for (let el of tagEl) {
-          if (parseInt(String(el.getAttribute('id'))) != i){
-            break
-          } if (parseInt(String(el.getAttribute('id'))) == i && i=16){
-            tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`)
+        // let tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
+        // console.log (tagEl)
+        // let i = 1
+        // for (let el of tagEl) {
+        //   if (parseInt(String(el.getAttribute('id'))) != i){
+        //     break
+        //   } if (parseInt(String(el.getAttribute('id'))) == i && i=16){
+        //     tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`)
 
-          }
-          i++
+        //   }
+        //   i++
 
           
-        }
-        while( i = 16){
-          if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1)){
-            i++ 
-          }else{
-            break
-          }
-        }
-        tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`)
-        for (let i = 0; i< 16; i ++){
-          console.log (tagEl[i].getAttribute('id'))
-          if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1) && i == 15){
+        // }
+        // while( i = 16){
+        //   if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1)){
+        //     i++ 
+        //   }else{
+        //     break
+        //   }
+        // }
+        // tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`)
+        // for (let i = 0; i< 16; i ++){
+        //   console.log (tagEl[i].getAttribute('id'))
+        //   if(parseInt(String(tagEl[i].getAttribute('id'))) ==  (i+1) && i == 15){
           
-              tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`) 
-            }else{
-              break
+        //       tag.insertAdjacentHTML('afterbegin', `<p>ПОБЕДА</p>`) 
+        //     }else{
+        //       break
             
-          }
+        //   }
   
-        }
+        // }
       
 function el(value: HTMLDivElement, index: number, array: HTMLDivElement[]): void {
   throw new Error('Function not implemented.')
