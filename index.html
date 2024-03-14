@@ -10,17 +10,25 @@
     <div id="parallax">
       
       <div class="menu">
-        <div class="register"><span>Регистрация</span></div>
-        <div class="help"><span>Тупишь? YouTube в помощь.</span></div>
+        <input type="submit" value="MENU" id="menu">
+        <div class="register hiden" ><span>Регистрация</span></div>
+        <div class="help hiden"><span>Тупишь?<br> YouTube в помощь.</span></div>
       </div>
       <div class="nav">
-        <button id="reset">Начать новую игру</button>
-        <span>Ходы</span>
-        <input type="number">
-        <span>Время</span>
-        <input type="datetime">
+        <button id="reset">Новая игра</button>
+        <label>Ходы<input type="text"></label>
+        <label>Время<input type="datetime"></label>
         <button id="demo">Собрать</button>
       </div>
+      <!-- ===================================================== -->
+      <div id="my_modal" class="modal">
+        <div class="modal_content">
+          <span class="close_modal_window">×</span>
+          <div id="content"></div>
+          <!-- <p>Модальное окно!</p> -->
+        </div>
+      </div>
+      <!-- ========================================================== -->
       <div id="planet"></div>
       <div id="korabl"></div>
       <div class="wrap">

@@ -1,4 +1,5 @@
 import './style.css'
+import '@justinribeiro/lite-youtube';
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
@@ -26,6 +27,47 @@ import { setupCounter } from './counter.ts'
   }
 
 })();
+
+const menu = document.querySelector('#menu') as HTMLInputElement;
+const register = document.querySelector('.register') as HTMLDivElement;
+
+const help = document.querySelector('.help') as HTMLDivElement;
+
+menu.onclick = async function(event: MouseEvent){
+  // console.log(register.getAttribute('class'))
+  // let target = event.target as HTMLElement
+  if (register.getAttribute('class') == "register hiden") {
+    register.classList.toggle("hiden")
+    await wait(2000)
+    help.classList.toggle("hiden")
+  } else {
+    register.classList.toggle("hiden")
+    help.classList.toggle("hiden")
+  }
+}
+// ========================================================================
+const modal = document.querySelector("#my_modal") as HTMLDivElement
+const span = modal.querySelector(".close_modal_window") as HTMLSpanElement
+const modal_content = modal.querySelector(".modal_content")
+const content = modal.querySelector("#content")as HTMLDivElement
+
+help.onclick = function () {
+   modal.style.display = "block";
+   content.insertAdjacentHTML('afterbegin', '<lite-youtube videoid="3_PB0b-UaX8"></lite-youtube>')
+
+}
+
+span.onclick = function () {
+   modal.style.display = "none";
+   content.innerHTML = ''
+}
+
+window.onclick = function (event) {
+   if (event.target == modal) {
+       modal.style.display = "none";
+   }
+}
+// ==========================================================================
 
 
 let cube = document.querySelector('.cube') as HTMLElement
@@ -80,6 +122,7 @@ const demo = document.querySelector('#demo') as HTMLButtonElement
 const tag = document.querySelector('.front') as HTMLDivElement 
 let elDivBack = document.querySelector('.back') as HTMLDivElement
 let picture = document.querySelector('.picture') as HTMLDivElement
+
 let elDiv: HTMLDivElement[] = []
 let elDivB: HTMLDivElement[] = []
 let elDivP : HTMLDivElement[] = []
@@ -205,31 +248,23 @@ tag.onclick = function(event){
         elDivP[elDiv.indexOf(target)].setAttribute('id', `${atrP}`)
         }
        }
-      //  let tagEl2: any[] = []
-       let tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
-      //  tagEl.forEach((el) => tagEl2.push(el))
+      
+       const tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
+      
        let i1 = 1
        for (let el of tagEl) {
          console.log((String(el.getAttribute('id'))))
          if ((String(el.getAttribute('id'))) != 'D'+i1){
          
-         }if ((String(el.getAttribute('id'))) == 'D0' && i1==16 || (String(el.getAttribute('id'))) == 'D0' && i1==16){
-           tag.insertAdjacentHTML('afterbegin', `<div>ПОБЕДА</div>`)
+         }if ((String(el.getAttribute('id'))) == 'D0' && i1>=15){
+          //  tag.insertAdjacentHTML('afterbegin', `<div>ПОБЕДА</div>`)
            console.log('ПОБЕДА')
           //  tagEl = []
            demoArr=[]
-          
-
-         }
-         i1 ++  
-       }
-       
-      
-        
+          }
+           i1 ++
+        }
     }
-   
-    console.log(demoArr)
-  
 }
 
 
@@ -264,7 +299,22 @@ picture.onclick = function(event){
         elDivB[elDivP.indexOf(P0)].setAttribute('id', `${elDivB[elDivP.indexOf(target)].getAttribute('id')}`)
         elDivB[elDivP.indexOf(target)].setAttribute('id', `${atrB}`)
         }
-      }    
+      } 
+      const tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
+      
+      let i1 = 1
+      for (let el of tagEl) {
+        console.log((String(el.getAttribute('id'))))
+        if ((String(el.getAttribute('id'))) != 'D'+i1){
+        
+        }if ((String(el.getAttribute('id'))) == 'D0' && i1>=15){
+         //  tag.insertAdjacentHTML('afterbegin', `<div>ПОБЕДА</div>`)
+          console.log('ПОБЕДА')
+         //  tagEl = []
+          demoArr=[]
+         }
+          i1 ++
+       }   
     }
     console.log(demoArr)
 }
