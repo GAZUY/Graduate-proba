@@ -268,9 +268,11 @@ tag.onclick = function(event){
          console.log((String(el.getAttribute('id'))))
          if ((String(el.getAttribute('id'))) != 'D'+i1){
          
-         }if ((String(el.getAttribute('id'))) == 'D0' && i1>=15){
+         }if ((String(el.getAttribute('id'))) == 'D0' && i1>15){
           //  tag.insertAdjacentHTML('afterbegin', `<div>ПОБЕДА</div>`)
-           console.log('ПОБЕДА')
+          modal.style.display = "block";
+          content.innerHTML = ''
+          content.insertAdjacentHTML('afterbegin', '<p>ПОБЕДА</p>')
           //  tagEl = []
           //  demoArr=[]
           }
