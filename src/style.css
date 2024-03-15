@@ -8,7 +8,7 @@ body {
 url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-3.png),
  url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-2.png),
 */
-
+/* Задний фон===================================== */
 #parallax {
   position: relative;
   width: 100%;
@@ -40,10 +40,10 @@ url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth
 }
 
 
-/* ================================================================ -->*/
+/* Правая навигация================================================================*/
 input, button {
   font-size: xx-large;
-  color: green;
+  color: Gold;
   margin-bottom: 30px;
   width: 290px;
   text-align: center;
@@ -68,7 +68,7 @@ input, button {
 }
 label {
   font-size: xx-large;
-  color: green;
+  color: Gold;
   text-shadow:
   0 0 10px #fff,
   0 0 20px #fff,
@@ -77,10 +77,11 @@ label {
   0 0 82px #0fa,
   0 0 92px #0fa;
 }
+/* левое меню ==================================================== */
 .menu {
   width: 300px;
   font-size: xx-large;
-  color: green;
+  color: Gold;
   position: absolute;
   display: flexbox;
   top: 2%;
@@ -94,7 +95,7 @@ label {
   width: 150px;
   height: 50px;
   z-index: 4;
-  color: green;
+  color: Gold;
   font-size: xx-large;
   text-shadow:
   0 0 10px #fff,
@@ -117,7 +118,7 @@ label {
   display: none;
 }
 
-.register, .help {
+.register, .help, .download, .save {
   margin-bottom: 30px;
   width: 260px;
   text-align: center;
@@ -149,6 +150,8 @@ label {
   85% {transform: translateX(-2%);}
   100% {transform: translateX(0);}
 }
+
+/* Модальное окно ================================================= */
 .modal {
   display: none;
   position: fixed;
@@ -187,6 +190,7 @@ label {
   right:5%;
   z-index: 3;
 }
+/* Блок игры пятнашки ======================================== */
 .wrap {
   position: absolute;
   top: 20%;
@@ -367,12 +371,7 @@ label {
 
 }
 
-/* #D0 {
-  box-sizing: border-box;
-  display: inline-block;
-  width: 104px;
-  height: 106px;
-} */
+
 #B1 {
   background-image: url('/pictures/tagB1.png');
 }
@@ -427,6 +426,8 @@ label {
   height: 106px;
   background-color: rgb(221, 240, 249);
 }
+
+
 #P1 {
   background-image: url('/pictures/1.jpg');
 }

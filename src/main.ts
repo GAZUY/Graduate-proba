@@ -30,7 +30,8 @@ import { setupCounter } from './counter.ts'
 
 const menu = document.querySelector('#menu') as HTMLInputElement;
 const register = document.querySelector('.register') as HTMLDivElement;
-
+const save = document.querySelector('.save') as HTMLDivElement;
+const download = document.querySelector('.download') as HTMLDivElement;
 const help = document.querySelector('.help') as HTMLDivElement;
 
 menu.onclick = async function(event: MouseEvent){
@@ -38,6 +39,10 @@ menu.onclick = async function(event: MouseEvent){
   // let target = event.target as HTMLElement
   if (register.getAttribute('class') == "register hiden") {
     register.classList.toggle("hiden")
+    await wait(2000)
+    save.classList.toggle("hiden")
+    await wait(2000)
+    download.classList.toggle("hiden")
     await wait(2000)
     help.classList.toggle("hiden")
   } else {
@@ -122,11 +127,14 @@ const demo = document.querySelector('#demo') as HTMLButtonElement
 const tag = document.querySelector('.front') as HTMLDivElement 
 let elDivBack = document.querySelector('.back') as HTMLDivElement
 let picture = document.querySelector('.picture') as HTMLDivElement
+let motion = document.querySelector('#motion') as HTMLInputElement
 
 let elDiv: HTMLDivElement[] = []
 let elDivB: HTMLDivElement[] = []
 let elDivP : HTMLDivElement[] = []
 let demoArr: number[] = []
+let count: number = 0
+
 
 
 for (let i = 1; i < 16; i ++){
@@ -152,6 +160,8 @@ elDivP.map((el) => picture.appendChild(el))
 
   reset.onclick = async function(event){
     let target = event.target as HTMLButtonElement
+    count = 0
+    motion.value = count+''
     if (target) {
       let d0 = document.querySelector('#D0') as HTMLDivElement
       shuffleArray(elDiv.indexOf(d0))
@@ -248,6 +258,8 @@ tag.onclick = function(event){
         elDivP[elDiv.indexOf(target)].setAttribute('id', `${atrP}`)
         }
        }
+       count ++
+       motion.value = count+''
       
        const tagEl = tag.querySelectorAll('DIV') as NodeListOf<Element>
       
@@ -260,11 +272,12 @@ tag.onclick = function(event){
           //  tag.insertAdjacentHTML('afterbegin', `<div>ПОБЕДА</div>`)
            console.log('ПОБЕДА')
           //  tagEl = []
-           demoArr=[]
+          //  demoArr=[]
           }
            i1 ++
         }
     }
+    console.log (demoArr)
 }
 
 
@@ -332,6 +345,8 @@ picture.onclick = function(event){
 
       demo.onclick = async function(event){
         let target = event.target as HTMLButtonElement
+        count = 0
+       motion.value = count+''
         if (target) {
           for (let i =0; i < demoArr.length-1; i++){
             if (demoArr[i] == demoArr[i+2]){
@@ -407,4 +422,50 @@ picture.onclick = function(event){
 function el(value: HTMLDivElement, index: number, array: HTMLDivElement[]): void {
   throw new Error('Function not implemented.')
 }
+// let timer = document.getElementById('timer');
+// let startBtn = document.getElementById('startBtn');
+// let pauseBtn = document.getElementById('pauseBtn');
+// let resetBtn = document.getElementById('resetBtn');
+
+// let seconds = 0;
+// let minutes = 0;
+// let hours = 0;
+// let interval;
+
+// function updateTime() {
+//   seconds++;
+//   if (seconds === 60) {
+//     minutes++;
+//     seconds = 0;
+//   }
+//   if (minutes === 60) {
+//     hours++;
+//     minutes = 0;
+//   }
+//   timer.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+// }
+
+// startBtn.addEventListener('click', () => {
+//   interval = setInterval(updateTime, 1000);
+//   startBtn.disabled = true;
+//   pauseBtn.disabled = false;
+//   resetBtn.disabled = false;
+// });
+
+// pauseBtn.addEventListener('click', () => {
+//   clearInterval(interval);
+//   startBtn.disabled = false;
+//   pauseBtn.disabled = true;
+// });
+
+// resetBtn.addEventListener('click', () => {
+//   clearInterval(interval);
+//   seconds = 0;
+//   minutes = 0;
+//   hours = 0;
+//   timer.textContent = '00:00:00';
+//   startBtn.disabled = false;
+//   pauseBtn.disabled = true;
+//   resetBtn.disabled = true;
+// });
 

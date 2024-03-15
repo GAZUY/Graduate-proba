@@ -8,19 +8,25 @@
   </head>
   <body>
     <div id="parallax">
-      
+
+      <!-- левое меню (регистрация, сохранение, загрузка, как играть)======== -->
       <div class="menu">
         <input type="submit" value="MENU" id="menu">
         <div class="register hiden" ><span>Регистрация</span></div>
+        <div class="save hiden" ><span>Сохранить</span></div>
+        <div class="download hiden" ><span>Загрузить</span></div>
         <div class="help hiden"><span>Тупишь?<br> YouTube в помощь.</span></div>
       </div>
+
+      <!-- правая навигация (гостевая)====================================== -->
       <div class="nav">
         <button id="reset">Новая игра</button>
-        <label>Ходы<input type="text"></label>
-        <label>Время<input type="datetime"></label>
+        <label>Ходы<input type="text" id="motion" value="0"></label>
+        <label>Время<input type="text" id="time" value="00:00:00"><button id="pause">Пауза</button></label>
         <button id="demo">Собрать</button>
       </div>
-      <!-- ===================================================== -->
+
+      <!-- модальное окно============================================ -->
       <div id="my_modal" class="modal">
         <div class="modal_content">
           <span class="close_modal_window">×</span>
@@ -31,6 +37,8 @@
       <!-- ========================================================== -->
       <div id="planet"></div>
       <div id="korabl"></div>
+
+      <!-- блок игры пятнашки========================================= -->
       <div class="wrap">
         <div class="cube" >
           <div class="top" ></div>
@@ -47,7 +55,14 @@
  
   <!-- <div id="parallax"><h1>Parallax</h1></div> -->
   <main></main>
-  <footer> </footer>
+  <!-- <footer>  <h1 id="timer">00:00:00</h1>
+    <button id="startBtn">Старт</button>
+    <button id="pauseBtn" disabled>Пауза</button>
+    <button id="resetBtn" disabled>Сброс</button>
+  
+    <script>
+      // Ваш JavaScript код будет здесь
+    </script></footer> -->
   
 
   
